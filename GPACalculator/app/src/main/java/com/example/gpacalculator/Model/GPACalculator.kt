@@ -1,16 +1,31 @@
 package com.example.gpacalculator.Model
 
+
 class GPACalculator {
-    fun calculateGpa(courses: List<Course>): Double {
+    private val subjects = mutableListOf<Subject>()
 
-        var totalGradePoints = 0.0
-        var totalCreditHours = 0.0
-
-        for (course in courses) {
-            totalGradePoints += course.grade * course.creditHours
-            totalCreditHours += course.creditHours
-        }
-
-        return if (totalCreditHours == 0.0) 0.0 else totalGradePoints / totalCreditHours
+    fun addSubject(subject: Subject) {
+        subjects.add(subject)
     }
+
+    fun removeSubject(){
+        if (subjects.isNotEmpty()) {
+            subjects.removeAt(subjects.size - 1)
+
+        }
+    }
+
+    fun calculateGPA(): Double {
+        var totalCredits = 0
+        var totalGradePoints = 0.0
+        for (subject in subjects) {
+            totalCredits += subject.credits
+            totalGradePoints += subject.credits * subject.grade
+        }
+        return if (totalCredits == 0) 0.0 else totalGradePoints / totalCredits
+    }
+
+    fun getSubjects(): List<Subject> = subjects
+
+
 }

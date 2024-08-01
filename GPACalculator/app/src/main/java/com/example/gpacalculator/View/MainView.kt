@@ -1,10 +1,13 @@
 package com.example.gpacalculator.View
 
-import com.example.gpacalculator.Model.Course
+import com.example.gpacalculator.Model.Subject
 
 interface MainView {
-    fun showCourse(course: List<Course>)
-    fun showGpa(gpa: Double)
+
+    fun showSubjects(subjects: List<Subject>)
+    fun showGPA(gpa: Double)
+
+    fun showError(message: String)
 
 }
 
