@@ -2,6 +2,7 @@ package com.example.gpacalculator.Model
 
 class GPACalculator {
     fun calculateGpa(courses: List<Course>): Double {
+
         var totalGradePoints = 0.0
         var totalCreditHours = 0.0
 
