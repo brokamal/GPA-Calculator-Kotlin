@@ -2,6 +2,7 @@ package com.example.gpacalculator.View
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showGPA(gpa: Double) {
+        Log.d("MainActivity", "GPA updated: $gpa")
         gpaResult.text = "GPA: ${gpa.toFixed(2)}"
     }
 
@@ -84,6 +86,7 @@ class MainActivity : AppCompatActivity(), MainView {
         val name = findViewById<EditText>(R.id.new_subject_name).text.toString()
         val credits = findViewById<EditText>(R.id.new_credits).text.toString()
         val grade = findViewById<Spinner>(R.id.new_grade_spinner).selectedItem.toString()
+        Log.d("MainActivity", "Adding subject: $name, $credits, $grade")
         presenter.addSubject(name, credits, grade)
     }
 
